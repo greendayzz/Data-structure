@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //数组合并 contact +
+    // let num1 = [1, 2, 3];
+    // let num2 = [100, 200, 300];
+    // let num3 = num1.concat(num2);
+    // console.log(num3);
+
+
+    //迭代方法
+    // let names = ['abc', 'cb', 'mba', 'dna'];
+    //every()方法是将数组中每一个元素传入到一个函数中, 该函数返回true/false
+    //如果函数中每一个元素都返回true, 那么结果为true, 有一个为false, 那么结果为false
+    //判断一组元素中是否都包含某一个字符：
+    // let flag = names.every(str => str.indexOf('a') != -1);
+    // console.log(flag);
+
+    //some()方法是将数组中每一个元素传入到一个函数中, 该函数返回true/false
+    //但是和every不同的是, 一旦有一次函数返回了true, 那么迭代就会结束. 并且结果为true
+    // let flag = names.some(str => str.indexOf('a') != -1);
+    // console.log(flag);
+
+    //forEach()方法仅仅是一种快速迭代数组的方式而已
+    //该方法不需要返回值
+    // names.forEach(str => console.log(str))
+
+    //filter()方法是一种过滤的函数 
+    //首先会遍历数组中每一个元素传入到函数中,函数的结果返回true, 那么这个元素会被添加到最新的数组中, 返回false, 则忽略该元素
+    //最终会形成一个新的数组, 该数组就是filter()方法的返回值
+    // let newNames = names.filter(str => str.indexOf('a') != -1);
+    // console.log(newNames);
+
+    //map()方法提供的是一种映射函数
+    //首先会遍历数组中每一个元素传入到函数中,元素会经过函数中的指令进行各种变换, 生成新的元素, 并且将新的元素返回
+    //最终会将返回的所有元素形成一个新的数组, 该数组就是map()方法的返回值
+    // let newNames = names.map(str => str + '123');
+    // console.log(newNames);
+
+
+    //reduce 方法
+    //参数：
+      //callback,一个在数组中每一项上调用的函数，接受四个函数：
+        //previousValue（上一次调用回调函数时的返回值，或者初始值）
+        //currentValue（当前正在处理的数组元素）
+        //currentIndex（当前正在处理的数组元素下标）
+        //array（调用reduce()方法的数组）
+      //initialValue（可选的初始值。作为第一次调用回调函数时传给previousValue的值）
+    let num = [1, 2, 3, 4];
+    let total = num.reduce((pre, cur) => {
+      return pre + cur;
+    })
+    console.log(total);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //求菲波那切数列的前20个数字, 并且放在数组中
+    //菲波那切数列数列第一个数字是1, 第二个数字也是1, 第三项是前两项的和
+    let fibonaci = [];
+    fibonaci[0] = 1;
+    fibonaci[1] = 1;
+    for(let i = 2; i < 20; i++) {
+      fibonaci[i] = fibonaci[i-1] + fibonaci[i-2]
+    }
+    console.log(fibonaci);
+  </script>
+</body>
+</html>

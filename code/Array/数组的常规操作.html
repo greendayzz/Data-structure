@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    //添加一个元素到数组的最后位置
+    //普通方法
+    // num[num.length] = 10;
+    //其他方法
+    // num.push(10);
+    // console.log(num);
+
+    //在数组首位插入一个元素
+    //普通方法
+    // for(let i = num.length; i > 0; i--) {
+    //   num[i] = num[i-1];
+    // }
+    // num[0] = -1;
+    // console.log(num);
+    //其他方法
+    // num.unshift(-1);
+    // console.log(num);
+
+    //删除元素
+    //删除最后一位元素
+    // num.pop();
+    // console.log(num);
+
+    //删除首位元素
+    //普通方法
+    // for(let i = 0; i < num.length; i++) {
+    //   num[i] = num[i+1];
+    // }
+    // num.pop();
+    // console.log(num);
+    //其他方法
+    // num.shift();
+    // console.log(num);
+
+    //splice
+    //删除数据，第一个参数表示索引起始的位置，第二参数表示删除的元素个数
+    // num.splice(3, 2);
+    // console.log(num);
+
+    //插入数据，第一个参数表示索引起始的位置，第二参数表示删除的元素个数，后面的参数表示要插入的元素
+    // num.splice(3, 0, 2, 1, 0);
+    // console.log(num);
+
+    //修改数据，思想：先删除，再插入
+    num.splice(3, 3, 'a', 'b', 'c');
+    console.log(num);
+  </script>
+</body>
+</html>
