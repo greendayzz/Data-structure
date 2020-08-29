@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //设计哈希函数
+    //将字符串转成比较大的数字：hasCode
+    //将hashCode压缩到数组范围之内
+    function hashFunc(str, max) {
+      //1.定义hashCode变量
+      let hashCode = 0;
+
+      //2.霍纳算法
+      for(let i = 0; i < str.length; i++) {
+        //charCodeAt 使用Unicode编码
+        hashCode = 37 * hashCode + str.charCodeAt(i);
+      }
+
+      //取余操作
+      let index = hashCode % max;
+      
+      return index
+    }
+
+    //测试
+
+    console.log(hashFunc('nba', 7)); //5
+    console.log(hashFunc('cba', 7));  //3
+    console.log(hashFunc('mab', 7));  //0
+  </script>
+</body>
+</html>
