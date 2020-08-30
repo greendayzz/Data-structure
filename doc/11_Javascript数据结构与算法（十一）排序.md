@@ -16,7 +16,9 @@
 ## 冒泡排序
   相比较其他排序算法，效率较低
   思路：
-  ![]()
-  ![]()
+  ![](https://github.com/greendayzz/Data-structure/blob/master/img/bubblesort/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%8E%92%E9%AB%98%E5%BA%A6.png)
+  ![](https://github.com/greendayzz/Data-structure/blob/master/img/bubblesort/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%80%9D%E8%B7%AF.png)
   冒泡排序代码解析：
-  ![]()
+  ![](https://github.com/greendayzz/Data-structure/blob/master/img/bubblesort/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%8E%92%E9%AB%98%E5%BA%A6.png)
+  冒泡排序的效率：
+  ![](https://github.com/greendayzz/Data-structure/blob/master/img/bubblesort/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E7%9A%84%E6%95%88%E7%8E%87.png)
