@@ -58,7 +58,17 @@
 
       }
       //选择排序
-
+      ArrayList.prototype.selectionSort = function() {
+        let length = this.array.length;
+        for(let i = 0; i < length -1; i++) {
+          let min = i;
+          for(let j = min + 1; j < length; j++) {
+            if(this.array[min] > this.array[j]) {
+              this.swap(min, j)
+            }
+          }
+        }
+      }
       //插入排序
 
       //希尔排序
@@ -77,8 +87,12 @@
     list.insert(34);
 
     //验证冒泡排序
-    list.bubblesort();
-    alert(list)
+    // list.bubblesort();
+    // alert(list)
+
+    //验证选择排序
+    list.selectionSort();
+    alert(list);
   </script>
 </body>
 
