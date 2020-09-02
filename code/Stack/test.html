@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Stack() {
+      this.items = [];
+
+      Stack.prototype.push = function(ele) {
+        this.items.push(ele);
+      }
+
+      Stack.prototype.pop = function() {
+        return this.items.pop();
+      }
+
+      Stack.prototype.peek = function() {
+        return this.items[this.items.length - 1];
+      }
+
+      Stack.prototype.isEmpty = function() {
+        return this.items.length == 0;
+      }
+
+      Stack.prototype.length = function() {
+        return this.items.length;
+      }
+
+      Stack.prototype.toString = function() {
+        let reStr = '';
+        for(let val of this.items) {
+          reStr += val + ' ';
+        }
+        return reStr;
+      }
+    }
+
+    // let s = new Stack();
+    // s.push(1);
+    // s.push(12);
+    // s.push(13);
+    // s.push(14);
+
+    // alert(s.isEmpty());
+
+    //十进制转二进制
+    function decTobin(num) {
+      let stack = new Stack();
+
+      while(num > 0) {
+        stack.push(num % 2);
+        num = Math.floor(num / 2);
+      }
+      let str = '';
+      while(!stack.isEmpty()) {
+        str += stack.pop();
+      }
+      return str;
+    }
+
+    alert(decTobin(10));
+  </script>
+</body>
+</html>
