@@ -34,47 +34,66 @@
 
       //实现排序算法
       //冒泡排序
-      ArrayList.prototype.bubblesort = function () {
-        let length = this.array.length
-        //第一次j=length-1，比较到倒数第一个位置
-        //第二次j=length-2，比较到倒数第二个位置
-        for (let j = length - 1; j >= 0; j--) {
-          //最后一次进来： i = length -1， 比较length -1和length的两个位置
-          for (let i = 0; i < j; i++) {
-            if (this.array[i] > this.array[i + 1]) {
-              this.swap(i, i + 1);
+        ArrayList.prototype.bubbleSort = function() {
+          //获取数组长度
+          let length = this.array.length;
+          //第一次： j = length-1,比较到倒数第一个位置
+          //第二次： j = length-2,比较到倒数第二个位置
+          //...
+          for(let i = length - 1; i >= 0; i--) {
+            //第一次进来： i = 0, 比较0和1位置的两个数据
+            //最后一次进来： i = length - 2,比较length-2和length-1的两个数据
+            for(let j = 0; j < i; j++) {
+              if(this.array[j] > this.array[j+1]) {
+                this.swap(j, j+1);
+              }
             }
           }
         }
-
-        //另一种写法
-        // for(let j = 0; j < length; j++) {
+        // ArrayList.prototype.bubblesort = function() {
+        //   let length = this.array.length;
         //   for(let i = 0; i < length-1; i++) {
-        //     if (this.array[i] > this.array[i + 1]) {
-        //       this.swap(i, i + 1);
+        //     for(let j = i+1; j< length;j++) {
+        //       if(this.array[i] > this.array[j]) {
+        //         this.swap(i, j);
+        //       }
         //     }
         //   }
         // }
 
       }
       //选择排序
-      ArrayList.prototype.selectionSort = function() {
+      ArrayList.prototype.selectSort = function() {
         let length = this.array.length;
-        for(let i = 0; i < length -1; i++) {
+        for(let i = 0; i < length-1; i++) {
           let min = i;
           for(let j = min + 1; j < length; j++) {
             if(this.array[min] > this.array[j]) {
-              this.swap(min, j)
+              min = j;
             }
           }
+          this.swap(min, i);
         }
       }
+
       //插入排序
+      ArrayList.prototype.insertionSort = function() {
+        let length = this.array.length;
+        for(let i = 1; i < length; i++) {
+          let temp = this.array[i];
+          let j = i;
+          while(this.array[j - 1] > temp && j > 0) {
+            this.array[j] = this.array[j-1];
+            j--;
+          }
+          this.array[j] = temp;
+        }
+      }
 
       //希尔排序
 
       //快速排序
-    }
+    
 
     //测试类
     let list = new ArrayList();
@@ -87,11 +106,13 @@
     list.insert(34);
 
     //验证冒泡排序
-    // list.bubblesort();
+    // list.bubbleSort();
+    // list.selectSort();
+    list.insertionSort()
     // alert(list)
 
     //验证选择排序
-    list.selectionSort();
+    // list.selectionSort();
     alert(list);
   </script>
 </body>
