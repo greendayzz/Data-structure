@@ -91,8 +91,83 @@
       }
 
       //希尔排序
+        ArrayList.prototype.shellSort = function() {
+          let length = this.array.length;
+
+          let gap = Math.floor(length / 2);
+
+          while(gap >= 1) {
+            for(let i = gap; i < length; i++) {
+              let temp = this.array[i];
+              let j = i;
+              while(this.array[j - gap] > temp && j > gap-1) {
+                this.array[j] = this.array[j - gap];
+                j -= gap;
+              }
+
+              this.array[j] = temp
+            }
+            gap = Math.floor(gap / 2)
+          }
+        }
 
       //快速排序
+        //选择枢纽
+        ArrayList.prototype.median = function(left, right) {
+          //找出中间的位置
+          let center = Math.floor((left + right) / 2);
+
+          //进行判断并交换位置
+          if(this.array[left] > this.array[right]) {
+            this.swap(left, right);
+          }
+          if(this.array[left] > this.array[center]) {
+            this.swap(left, center);
+          }
+          if(this.array[center] > this.array[right]) {
+            this.swap(center, right);
+          }
+
+          //将中位数放在倒数第二个位置，因为经过之前的交换后，最后一个位置一定大于中位数
+          this.swap(center, right-1)
+
+          //返回pivot
+          return this.array[right - 1]
+        }
+
+        ArrayList.prototype.quickSort = function() {
+          this.quickSortRec(0, this.array.length-1);
+        }
+
+        ArrayList.prototype.quickSortRec = function(left, right) {
+          //递归结束条件
+          if(left >= right) {
+            return
+          }
+
+          //获取枢纽
+          let pivot = this.median(left, right);
+
+          //交换
+          let i = left;
+          let j = right - 1;
+          while(i < j) {
+            while(this.array[++i] < pivot) {}
+            while(this.array[--j] > pivot) {}
+            if(i < j) {
+              this.swap(i, j)
+            }else {
+              break
+            }
+          }
+
+          //将枢纽放在正确的位置
+          this.swap(i, right-1);
+
+          //左边和右边分别递归调用
+          this.quickSortRec(left, i - 1);
+          this.quickSortRec(i + 1, right);
+        }
     
 
     //测试类
@@ -108,7 +183,10 @@
     //验证冒泡排序
     // list.bubbleSort();
     // list.selectSort();
-    list.insertionSort()
+    // list.insertionSort()
+    // list.shellSort();
+    // list.median(0, 5)
+    list.quickSort();
     // alert(list)
 
     //验证选择排序
